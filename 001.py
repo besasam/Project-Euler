@@ -9,4 +9,4 @@ while i < 1000:
         if i % 5 == 0:
             n = n + i
     i = i + 1
-print n
+print (n)
