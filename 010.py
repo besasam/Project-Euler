@@ -1,10 +1,19 @@
+def isPrime(n):
+    for i in range(2,n):
+        if n%i==0:
+            return False
+    return True
+
 def sieve(n):
     res = list(range(2,n+1))
-    for i in range (0, len(res)):
-        for k in range(i+1,len(res)):
-            if i<len(res) and k<len(res):
-                if res[k]%res[i]==0:
-                    del res[k]
+    i = 0
+    while i < len(res):
+        k = i + res[i]
+        while k < len(res):
+            if isPrime(res[k])==False:
+                del res[k]
+            k = k + res[i] - 1
+        i = i + 1
     return res
 
 def primeSum(n):
@@ -14,4 +23,4 @@ def primeSum(n):
         res = res + primes[i]
     return res
 
-print primeSum(2000000)
+print primeSum(2000000) # it works, but it's slow as fuck
